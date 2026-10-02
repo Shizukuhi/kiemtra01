@@ -1,4 +1,4 @@
-# Câu 1: Value Types vs Reference Types (Stack vs Heap)
+ Câu 1: Value Types vs Reference Types (Stack vs Heap)
 Value Types (Kiểu giá trị):
   Các kiểu: int, float, bool, char, struct, enum.
   Vị trí bộ nhớ: Lưu trực tiếp giá trị thực tế trên Stack (trừ biến thành viên của class nằm trên Heap).
