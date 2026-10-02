@@ -1,1 +1,26 @@
+Câu 1: Value Types vs Reference Types (Stack vs Heap)
+Value Types (Kiểu giá trị):
+  Các kiểu: int, float, bool, char, struct, enum.
+  Vị trí bộ nhớ: Lưu trực tiếp giá trị thực tế trên Stack (trừ biến thành viên của class nằm trên Heap).
+  Cơ chế gán (=): Sao chép dữ liệu. Thay đổi ở biến này hoàn toàn không ảnh hưởng đến biến khác.
+  Giải phóng bộ nhớ: Tự động giải phóng ngay khi ra khỏi phạm vi (scope).
+Reference Types (Kiểu tham chiếu):
+  Các kiểu: class, interface, delegate, object, string.
+  Vị trí bộ nhớ: Lưu địa chỉ tham chiếu trên Stack, dữ liệu đối tượng nằm trên Heap.
+  Cơ chế gán (=): Sao chép địa chỉ. Cả hai biến cùng trỏ về 1 vùng nhớ, thay đổi ở biến này sẽ làm biến kia đổi theo.
+  Giải phóng bộ nhớ: Do bộ dọn rác (Garbage Collector - GC) tự động thu hồi khi không còn tham chiếu nào trỏ tới.
 
+Câu 2: Init-only Properties (init) trong C# 9+
+Khác biệt:
+  set: Thay đổi giá trị bất kỳ lúc nào.
+  init: Chỉ cho phép gán khi khởi tạo đối tượng (qua constructor hoặc Object Initializer). Sau đó trở thành Read-only.
+Trường hợp sử dụng: Dùng để tạo các đối tượng không thể sửa đổi (Immutable Objects) như DTO, Record, cấu hình hệ thống... mà vẫn dùng được Object Initializer.
+
+Câu 3: Virtual (Lớp cha) vs Override (Lớp con)
+  virtual (Lớp cha): Khai báo phương thức có cài đặt mặc định và cấp quyền cho lớp con được ghi đè.
+  override (Lớp con): Định nghĩa lại hành vi của phương thức virtual để thực thi tính Đa hình (Polymorphism) tại thời điểm chạy (Runtime).
+
+Câu 4: Tại sao static không thể gọi từ Thể hiện (Instance)?
+  Bản chất thuộc về Class: Thành phần static nằm ở cấp độ Lớp (Class level), được khởi tạo 1 lần duy nhất khi tải Lớp vào bộ nhớ và dùng chung cho tất cả thể hiện.
+  Quy tắc ngôn ngữ C#: C# cấm truy cập qua instance để tránh gây nhầm lẫn ngữ nghĩa rằng đó là dữ liệu riêng của từng đối tượng.
+  Cú pháp đúng: Phải truy cập qua tên Lớp: TenLop.ThanhPhanStatic.
